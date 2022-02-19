@@ -14,17 +14,17 @@ const Default = (app) => {
     });
   });
 
-  app.get('/initaliseTelegramWebhook', async (req, res) => {
-    axios
-      .get(`${TELEGRAM_API}/setWebhook?url=${WEBHOOK_URL}`)
-      .then((result) => {
-        console.log(result.data);
-        res.json(result.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
+  // app.get('/initaliseTelegramWebhook', async (req, res) => {
+  //   axios
+  //     .get(`${TELEGRAM_API}/setWebhook?url=${WEBHOOK_URL}`)
+  //     .then((result) => {
+  //       console.log(result.data);
+  //       res.json(result.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // });
 
   app.post(URI, async (req, res) => {
     let { message } = req.body;

@@ -27,49 +27,55 @@ const Default = (app) => {
   // });
 
   app.post(URI, async (req, res) => {
-    let { message } = req.body;
-    console.log(message);
-    let { chat = false, text: receivedMessage } = message;
-
-    let chatID;
-    if (chat) {
-      ({ id: chatID } = chat);
-    }
-
-    console.log(chat);
-    console.log(receivedMessage);
-
-    if (chatID) {
-      let text = receivedMessage.toLowerCase();
-      if (text.includes('chat id')) {
-        axios
-          .post(`${TELEGRAM_API}/sendMessage`, {
-            chat_id: chatID,
-            text: `Chat ID is ${chatID}`,
-          })
-          .then((result) => {
-            console.log(result);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      } else {
-        axios
-          .post(`${TELEGRAM_API}/sendMessage`, {
-            chat_id: chatID,
-            text: `How can reminder bot help?`,
-          })
-          .then((result) => {
-            console.log(result);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-    }
-    res.json({
-      success: true,
-    });
+    console.log(req.body);
+    // let { message } = req.body;
+    // console.log(message);
+    // let { chat = false } = message;
+    // let chatID;
+    // if (chat) {
+    //   ({ id: chatID } = chat);
+    // }
+    // console.log(chat);
+    // console.log(receivedMessage);
+    // if (chatID) {
+    //   // let text = receivedMessage.toLowerCase();
+    //   if (receivedMessage.includes('chat id')) {
+    //     axios
+    //       .post(`${TELEGRAM_API}/sendMessage`, {
+    //         chat_id: chatID,
+    //         text: `Chat ID is ${chatID}`,
+    //       })
+    //       .then((result) => {
+    //         res.json({
+    //           success: true,
+    //         });
+    //       })
+    //       .catch((err) => {
+    //         res.json({
+    //           success: true,
+    //         });
+    //       });
+    //   } else {
+    //     axios
+    //       .post(`${TELEGRAM_API}/sendMessage`, {
+    //         chat_id: chatID,
+    //         text: `How can reminder bot help?`,
+    //       })
+    //       .then((result) => {
+    //         res.json({
+    //           success: true,
+    //         });
+    //       })
+    //       .catch((err) => {
+    //         res.json({
+    //           success: true,
+    //         });
+    //       });
+    //   }
+    // }
+    // res.json({
+    //   success: true,
+    // });
   });
 };
 

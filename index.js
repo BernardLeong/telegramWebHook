@@ -9,9 +9,6 @@ app.use(express.json());
 const { Default } = require('./routing/routes');
 Default(app);
 
-let init = async () => {
-  axios;
-};
 app.listen(8080, async () => {
   await axios.get(`${process.env.SERVER_URL}/initaliseTelegramWebhook`);
 });

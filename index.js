@@ -46,14 +46,10 @@ app.post('/sendTelegramMessage', async (req, res) => {
           text: `Chat ID is ${chatID}`,
         })
         .then((result) => {
-          res.json({
-            success: true,
-          });
+          console.log(result);
         })
         .catch((err) => {
-          res.json({
-            success: true,
-          });
+          console.log(err);
         });
     } else {
       axios
@@ -62,14 +58,16 @@ app.post('/sendTelegramMessage', async (req, res) => {
           text: `How can reminder bot help?`,
         })
         .then((result) => {
-          res.json({
-            success: true,
-          });
+          // res.json({
+          //   success: true,
+          // });
+          console.log(result);
         })
         .catch((err) => {
-          res.json({
-            success: true,
-          });
+          // res.json({
+          //   success: true,
+          // });
+          console.log(err);
         });
     }
   }
